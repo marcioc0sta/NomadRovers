@@ -8,21 +8,36 @@
 
 <script>
 import Select from "../select/Select.vue";
+import { getRovers } from '../../services/getRovers/getRoverService.js'
 
 export default {
   name: "HeroUnit",
   components: {
     Select
   },
+  methods: {
+    setHovers: function (rovers) {
+      const parsed = rovers.map(rover => {
+        return {
+          key: rover.name,
+          value: rover.id
+        }
+      })
+
+      this.rovers = parsed
+    }
+  },
+  mounted() {
+    getRovers().then(data => {
+      const { rovers } = data
+      this.setHovers(rovers)
+    })
+  },
   data() {
     return {
-      rovers: [
-        { key: 'Curiosity', value: 'curiosity' },
-        { key: 'Opportunity', value: 'opportunity' },
-        { key: 'Spirit', value: 'spirit' },
-      ]
+      rovers: []
     }
-  }
+  },
 }
 </script>
 
