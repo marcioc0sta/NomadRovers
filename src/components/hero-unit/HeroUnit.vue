@@ -1,10 +1,28 @@
 <template>
-  <div class="hero-unit" />
+  <div class="hero-unit">
+    <div class="rover">
+      <Select id="hover" v-bind:options="rovers" />
+    </div>
+  </div>
 </template>
 
 <script>
+import Select from "../select/Select.vue";
+
 export default {
-name: "HeroUnit"
+  name: "HeroUnit",
+  components: {
+    Select
+  },
+  data() {
+    return {
+      rovers: [
+        { key: 'Curiosity', value: 'curiosity' },
+        { key: 'Opportunity', value: 'opportunity' },
+        { key: 'Spirit', value: 'spirit' },
+      ]
+    }
+  }
 }
 </script>
 
@@ -15,6 +33,19 @@ name: "HeroUnit"
   height: 80vh;
   overflow: hidden;
   width: 100%;
+}
+
+.rover {
+  background: rgba(255,255,255, .3);
+  box-shadow: 0px 0px 10px #636364;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  margin: 10% auto 0;
+  padding: 30px;
+  position: relative;
+  width: 50%;
+  z-index: 20;
 }
 
 .hero-unit:before {
