@@ -1,6 +1,8 @@
 import {createStore} from "vuex";
 import requestStatus from "../enum/requestStatus";
-import { getRovers } from '../services/getRovers/getRoverService'
+import { setRovers } from "./actions/setRovers";
+import { setRoverStatus, setRoversData } from "./mutations/rover"
+import { parsedRovers } from "./getters/getPaersdRovers"
 
 const store = createStore({
   state () {
@@ -11,35 +13,9 @@ const store = createStore({
       }
     }
   },
-  mutations: {
-    setRoverStatus(state, payload) {
-      state.rovers.status = payload
-    },
-    setRoversData(state, payload) {
-      state.rovers.data = payload
-    }
-  },
-  getters: {
-    parsedRovers: state => {
-      return state.rovers.data.map(rover => ({
-        key: rover.name,
-        value: rover.id
-      }))
-    }
-  },
-  actions: {
-    setRovers({ commit }) {
-      commit('setRoverStatus', requestStatus.LOADING)
-      getRovers().then(data => {
-        const { rovers } = data
-        commit('setRoverStatus', requestStatus.SUCCEEDED)
-        commit('setRoversData', rovers)
-      }).catch(err => {
-        commit('setRoverStatus', requestStatus.FAILED)
-        console.log(err)
-      })
-    }
-  }
+  mutations: { setRoverStatus, setRoversData },
+  getters: { parsedRovers },
+  actions: { setRovers }
 })
 
 export default store
