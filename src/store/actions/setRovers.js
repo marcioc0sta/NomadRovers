@@ -12,3 +12,7 @@ export function setRovers ({ commit }) {
     console.log(err)
   })
 }
+
+export function setActive ({ commit }, active) {
+  commit('setActiveRover', active)
+}

@@ -1,21 +1,38 @@
 <template>
   <div class="select">
-    <select :name="id" :id="id">
-      <option v-for="option in options" :key="option.value" :value="option.value">
-        {{ option.key }}
-      </option>
-    </select>
+    <label :for="id">
+      <select v-model="selected" @change="onChange($event)" :name="id" :id="id">
+        <option value="" disabled selected>Select a rover</option>
+        <option v-for="option in options" :key="option.value" :value="option.value">
+          {{ option.key }}
+        </option>
+      </select>
+    </label>
   </div>
 </template>
 
 <script>
+import {useStore} from "vuex";
+
 export default {
   name: "Select",
+  store: useStore(),
   props: {
     id: String,
     options: {
       type: Array
     },
+  },
+  methods: {
+    onChange(e) {
+      const roverID = e.target.value
+      this.$store.dispatch('setActive', roverID)
+    }
+  },
+  data() {
+    return {
+      selected: ''
+    }
   }
 }
 </script>

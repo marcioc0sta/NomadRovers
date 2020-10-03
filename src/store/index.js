@@ -1,7 +1,7 @@
 import {createStore} from "vuex";
 import requestStatus from "../enum/requestStatus";
-import { setRovers } from "./actions/setRovers";
-import { setRoverStatus, setRoversData } from "./mutations/rover"
+import { setRovers, setActive } from "./actions/setRovers";
+import { setRoverStatus, setRoversData, setActiveRover } from "./mutations/rover"
 import { parsedRovers } from "./getters/getPaersdRovers"
 
 const store = createStore({
@@ -10,12 +10,13 @@ const store = createStore({
       rovers: {
         status: requestStatus.IDLE,
         data: []
-      }
+      },
+      activeRover: '',
     }
   },
-  mutations: { setRoverStatus, setRoversData },
+  mutations: { setRoverStatus, setRoversData, setActiveRover },
   getters: { parsedRovers },
-  actions: { setRovers }
+  actions: { setRovers, setActive }
 })
 
 export default store

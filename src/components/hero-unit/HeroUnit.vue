@@ -1,7 +1,6 @@
 <template>
   <div class="hero-unit">
     <div class="rover">
-      <label class="title" for="hover">Select a rover</label>
       <Select id="hover" :options="rovers" />
     </div>
   </div>
@@ -35,7 +34,6 @@ export default {
 .hero-unit {
   background: url("../../assets/6037_msl_banner.jpg") center -120px no-repeat;
   background-size: cover;
-  height: 40vh;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -48,19 +46,11 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 6% auto 0;
+  margin: 2% auto;
   padding: 30px;
   position: relative;
   width: 50%;
   z-index: 20;
-}
-
-.rover .title {
-  color: #1e272e;
-  font-size: 18px;
-  font-weight: 900;
-  margin-bottom: 15px;
-  width: 100%;
 }
 
 .hero-unit:before {
