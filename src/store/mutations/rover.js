@@ -6,5 +6,6 @@ export function setRoversData(state, payload) {
 }
 
 export function setActiveRover(state, payload) {
-  state.activeRover = payload
+  const rovers = state.rovers.data
+  state.activeRover = rovers.find(item => item.id.toString() === payload)
 }

@@ -4,7 +4,7 @@
       <Rocket :size="80" fill="#000" />
       <div>
         <h2>Lauch Date</h2>
-        {{ rovers }}
+        {{ rover }}
       </div>
     </section>
   </div>
@@ -21,8 +21,7 @@ export default {
   },
   store: useStore(),
   computed: {
-    rovers() {
-      console.log(this.$store.state)
+    rover() {
       return this.$store.state.activeRover
     }
   },

@@ -11,7 +11,7 @@ const store = createStore({
         status: requestStatus.IDLE,
         data: []
       },
-      activeRover: '',
+      activeRover: {},
     }
   },
   mutations: { setRoverStatus, setRoversData, setActiveRover },
