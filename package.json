@@ -1,10 +1,10 @@
 {
-  "name": "todo-list",
+  "name": "mars-rovers",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "start": "node server.js"
+    "start": "npm run build && node server.js"
   },
   "dependencies": {
     "axios": "^0.20.0",
