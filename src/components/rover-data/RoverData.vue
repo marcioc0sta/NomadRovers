@@ -15,15 +15,19 @@
       </div>
     </section>
     <section>
-      <Status :size="80" fill="#000" />
+      <Status :size="60" fill="#000" />
       <div>
         <h2>Mission Status</h2>
         <p>{{ rover.status }}</p>
       </div>
     </section>
-  </div>
-  <div>
-    <code>{{ rover }}</code>
+    <section>
+      <Sun :size="60" fill="#000" />
+      <div>
+        <h2>Mars Suns</h2>
+        <p>{{ rover.max_sol }}</p>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -31,6 +35,7 @@
 import  Rocket from '../../components/icons/rocket.vue'
 import Arrival from '../../components/icons/arrival.vue';
 import Status from '../../components/icons/status.vue';
+import Sun from '../../components/icons/sun.vue';
 import {useStore} from "vuex";
 
 export default {
@@ -38,7 +43,8 @@ export default {
   components: {
     Arrival,
     Rocket,
-    Status
+    Status,
+    Sun
   },
   store: useStore(),
   computed: {
