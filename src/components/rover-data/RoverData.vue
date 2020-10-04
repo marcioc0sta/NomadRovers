@@ -14,6 +14,13 @@
         <p>{{ rover.landing_date }}</p>
       </div>
     </section>
+    <section>
+      <Status :size="80" fill="#000" />
+      <div>
+        <h2>Mission Status</h2>
+        <p>{{ rover.status }}</p>
+      </div>
+    </section>
   </div>
   <div>
     <code>{{ rover }}</code>
@@ -23,13 +30,15 @@
 <script>
 import  Rocket from '../../components/icons/rocket.vue'
 import Arrival from '../../components/icons/arrival.vue';
+import Status from '../../components/icons/status.vue';
 import {useStore} from "vuex";
 
 export default {
   name: "RoverData",
   components: {
     Arrival,
-    Rocket
+    Rocket,
+    Status
   },
   store: useStore(),
   computed: {
