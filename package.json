@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "start": "npm i && node server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "axios": "^0.20.0",
