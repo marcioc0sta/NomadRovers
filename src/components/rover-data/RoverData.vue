@@ -28,6 +28,7 @@
         <p>{{ rover.max_sol }}</p>
       </div>
     </section>
+    <Query />
   </div>
 </template>
 
@@ -36,6 +37,7 @@ import  Rocket from '../../components/icons/rocket.vue'
 import Arrival from '../../components/icons/arrival.vue';
 import Status from '../../components/icons/status.vue';
 import Sun from '../../components/icons/sun.vue';
+import Query from "../query/Query.vue";
 import {useStore} from "vuex";
 
 export default {
@@ -44,7 +46,8 @@ export default {
     Arrival,
     Rocket,
     Status,
-    Sun
+    Sun,
+    Query,
   },
   store: useStore(),
   computed: {
@@ -58,6 +61,7 @@ export default {
 <style scoped>
   .rover-data {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     padding: 30px 60px;
   }

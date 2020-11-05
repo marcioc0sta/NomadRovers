@@ -1,6 +1,6 @@
 import {withKey} from "../HttpService";
 
-const ROVERS_URL = import.meta.env.VITE_ROVERS
+const ROVERS_URL = process.env.VUE_APP_ROVERS
 
 export const getRovers = async () => {
   try {
