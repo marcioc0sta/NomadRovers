@@ -51,7 +51,7 @@ export default {
   data() {
     return {
       marsSun: '0',
-      selectedCam: ''
+      selectedCam: this.$store.state.activeRover.cameras[0].name
     }
   }
 }
@@ -60,11 +60,40 @@ export default {
 <style scoped>
 .query-box {
   margin-top: 30px;
-  text-align: left;
+  text-align: center;
   width: 100%;
 }
 
 .query-box form {
+  display: flex;
+  justify-content: center;
   margin-top: 15px;
+}
+
+.query-box form .field {
+  margin-right: 30px;
+}
+
+.query-box form input,
+.query-box form select {
+  padding: 5px 10px;
+}
+
+.query-box form button {
+  background-color: #1e272e;
+  border: none;
+  color: white;
+  padding: 5px 32px;
+  text-align: center;
+  font-size: 16px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.query-box form button:hover {
+  opacity: 1;
 }
 </style>
