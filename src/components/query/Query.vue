@@ -27,6 +27,7 @@
     </div>
     <button type="submit">Query Photos</button>
   </form>
+  <pre>{{ photos }}</pre>
 </div>
 </template>
 
@@ -40,12 +41,14 @@ export default {
     rover() {
       return this.$store.state.activeRover
     },
+    photos() {
+      return this.$store.state.photos
+    }
   },
   methods: {
     submitForm() {
       const { selectedCam, marsSun } = this
-      console.log(selectedCam.toLowerCase())
-      console.log(marsSun)
+      this.$store.dispatch('queryPhotos', {marsSun, selectedCam})
     }
   },
   data() {

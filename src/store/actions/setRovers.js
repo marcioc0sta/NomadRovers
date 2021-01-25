@@ -1,5 +1,5 @@
 import requestStatus from "../../enum/requestStatus";
-import { getRovers } from "../../services/getRovers/getRoverService";
+import { getRovers } from "@/services/getRovers/getRoverService";
 
 export function setRovers ({ commit }) {
   commit('setRoverStatus', requestStatus.LOADING)
