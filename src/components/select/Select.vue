@@ -27,6 +27,7 @@ export default {
     onChange(e) {
       const roverID = e.target.value
       this.$store.dispatch('setActive', roverID)
+      this.$store.dispatch('resetPhotos')
     }
   },
   data() {

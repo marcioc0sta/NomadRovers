@@ -1,7 +1,6 @@
 import requestStatus from "../../enum/requestStatus";
 import { getPhotos } from "@/services/getPhotos/getPhotoService";
 
-
 export function queryPhotos({ commit, state }, params) {
   commit('setPhotoStatus', requestStatus.LOADING)
   const rover = state.activeRover.name
@@ -14,4 +13,8 @@ export function queryPhotos({ commit, state }, params) {
     commit('setPhotoStatus', requestStatus.SUCCEEDED)
     commit('setPhotosData', data.photos)
   })
+}
+
+export function resetPhotos({commit}) {
+  commit('setPhotosData', [])
 }
