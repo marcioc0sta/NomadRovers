@@ -10,6 +10,11 @@ export function queryPhotos({ commit, state }, params) {
     camera
   }
   getPhotos(rover, queryData).then(data => {
+    if(data.photos.length === 0) {
+      commit('setPhotoStatus', requestStatus.NO_DATA)
+      commit('setPhotosData', [])
+      return
+    }
     commit('setPhotoStatus', requestStatus.SUCCEEDED)
     commit('setPhotosData', data.photos)
   }).catch(err => {
