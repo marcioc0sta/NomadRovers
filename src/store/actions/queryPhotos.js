@@ -12,6 +12,9 @@ export function queryPhotos({ commit, state }, params) {
   getPhotos(rover, queryData).then(data => {
     commit('setPhotoStatus', requestStatus.SUCCEEDED)
     commit('setPhotosData', data.photos)
+  }).catch(err => {
+    console.log(err)
+    commit('setPhotoStatus', requestStatus.FAILED)
   })
 }
 

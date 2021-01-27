@@ -3,5 +3,5 @@ export function setPhotoStatus (state, payload) {
 }
 
 export function setPhotosData (state, payload) {
-  state.photos = payload
+  state.photos.data = payload
 }

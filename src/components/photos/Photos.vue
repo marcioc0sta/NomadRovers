@@ -1,5 +1,6 @@
 <template>
-  <div v-if="rovers.status === reqStatus.SUCCEEDED && photos.length >= 1">
+  <pre>{{photos.status}}</pre>
+  <div class="photos-wrapper" v-if="rovers.status === reqStatus.SUCCEEDED && photos.data.length >= 1">
     <vueper-slides
         class="no-shadow"
         :visible-slides="3"
@@ -10,7 +11,7 @@
         :touchable="false"
         :breakpoints="{ 800: { visibleSlides: 2, slideMultiple: 2 } }">
       <vueper-slide
-          v-for="(photo, i) in photos"
+          v-for="(photo, i) in photos.data"
           :key="i"
           :image="photo.img_src"
           :link="photo.img_src"
@@ -29,13 +30,10 @@ export default {
   name: "Photos",
   store: useStore(),
   components: { VueperSlides, VueperSlide },
-  computed: {
-    photos() {
-      return this.$store.state.photos
-    }
-  },
+
   data() {
     return {
+      photos: this.$store.state.photos,
       rovers: this.$store.state.rovers,
       reqStatus: requestStatus,
     }
@@ -44,5 +42,7 @@ export default {
 </script>
 
 <style scoped>
-
+.photos-wrapper {
+  padding: 0 30px;
+}
 </style>

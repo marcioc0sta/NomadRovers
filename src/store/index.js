@@ -13,7 +13,10 @@ const store = createStore({
         status: requestStatus.IDLE,
         data: []
       },
-      photos: [],
+      photos: {
+        status: requestStatus.IDLE,
+        data: []
+      },
       activeRover: {},
     }
   },
