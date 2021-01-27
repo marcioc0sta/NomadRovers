@@ -27,7 +27,6 @@
     </div>
     <button type="submit">Query Photos</button>
   </form>
-  <pre>{{ photos }}</pre>
 </div>
 </template>
 
@@ -71,6 +70,7 @@ export default {
   display: flex;
   justify-content: center;
   margin-top: 15px;
+  margin-bottom: 30px;
 }
 
 .query-box form .field {
