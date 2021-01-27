@@ -1,5 +1,7 @@
 <template>
-  <pre>{{photos.status}}</pre>
+  <div class="no-photos-wrapper" v-if="photos.status === reqStatus.NO_DATA">
+    <p>I still haven't found what i'm looking for :(</p>
+  </div>
   <div class="photos-wrapper" v-if="rovers.status === reqStatus.SUCCEEDED && photos.data.length >= 1">
     <vueper-slides
         class="no-shadow"
@@ -45,4 +47,25 @@ export default {
 .photos-wrapper {
   padding: 0 30px;
 }
+
+.no-photos-wrapper {
+  align-content: center;
+  background: url("../../assets/walle.gif") center 20% no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  margin: 0 auto 60px;
+  width: 55%;
+}
+
+.no-photos-wrapper p {
+  align-self: center;
+  display: inline-flex;
+  color: #fff;
+  font-weight: bold;
+  font-size: 30px;
+  text-shadow: 1px 1px 1px #1e272e;
+}
+
 </style>
