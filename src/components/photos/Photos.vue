@@ -1,6 +1,6 @@
 <template>
   <div class="no-photos-wrapper" v-if="photos.status === reqStatus.NO_DATA">
-    <p>I still haven't found what i'm looking for :(</p>
+    <p>I still haven't found what you looking for :(</p>
   </div>
   <div class="photos-wrapper" v-if="rovers.status === reqStatus.SUCCEEDED && photos.data.length >= 1">
     <vueper-slides
@@ -46,6 +46,7 @@ export default {
 <style scoped>
 .photos-wrapper {
   padding: 0 30px;
+  margin-bottom: 60px;
 }
 
 .no-photos-wrapper {
